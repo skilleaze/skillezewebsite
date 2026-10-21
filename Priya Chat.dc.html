@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="./sk-sound.js"></script>
+
+<style>
+@keyframes sk-dot{0%,80%,100%{transform:translateY(0);opacity:.35}40%{transform:translateY(-4px);opacity:1}}
+@keyframes sk-pop{from{transform:translateY(16px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+</style>
+</helmet>
+<sc-if value="{{ chatOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;right:16px;bottom:100px;z-index:60;width:min(430px,calc(100vw - 32px));height:min(660px,calc(100vh - 130px));background:#FFFFFF;border-radius:26px;box-shadow:0 30px 80px -20px rgba(4,45,124,.45);display:flex;flex-direction:column;overflow:hidden;animation:sk-pop .3s cubic-bezier(.2,.8,.2,1) both;font-family:'Lato',sans-serif;color:#2C3E50">
+<div style="background:#042D7C;color:#FFFFFF;padding:18px 18px 16px;display:flex;align-items:center;gap:12px">
+<div style="position:relative;flex-shrink:0"><span style="width:54px;height:54px;border-radius:50%;display:block;background-image:url(assets/priya.png);background-size:150%;background-position:50% 22%;background-repeat:no-repeat;border:2px solid #FFFFFF;box-sizing:border-box"></span><span style="position:absolute;right:0;bottom:1px;width:12px;height:12px;border-radius:50%;background:#2BB673;border:2px solid #042D7C"></span></div>
+<div style="flex:1;min-width:0"><div style="font-weight:900;font-size:17px">Priya</div><div style="font-size:12px;color:#E3E4E8">{{ status }}</div></div>
+<button onClick="{{ toggle }}" aria-label="Close chat" style="background:rgba(255,255,255,.12);border:none;color:#FFFFFF;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px;line-height:1">×</button>
+</div>
+<div ref="{{ bodyRef }}" style="flex:1;overflow-y:auto;padding:18px 16px;background:#F8F9FA;display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{ msgs }}" as="m" hint-placeholder-count="0">
+<div style="{{ m.style }}">{{ m.text }}</div>
+</sc-for>
+{{ typingEl }}
+<sc-if value="{{ hasOptions }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:6px">
+<sc-for list="{{ options }}" as="o" hint-placeholder-count="0">
+<button onClick="{{ o.pick }}" style="background:#FFFFFF;border:1.5px solid #042D7C;color:#042D7C;border-radius:999px;padding:8px 14px;font-family:'Lato',sans-serif;font-weight:700;font-size:13px;cursor:pointer" style-hover="background:#042D7C;color:#FFFFFF">{{ o.label }}</button>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
+<div style="align-self:stretch;margin-top:8px;background:#FFFFFF;border:1px solid #E3E4E8;border-radius:20px;overflow:hidden;animation:sk-pop .3s both">
+<div style="padding:14px 16px 12px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #E3E4E8">
+<span style="width:34px;height:34px;border-radius:50%;display:block;background-image:url(assets/priya.png);background-size:150%;background-position:50% 22%;background-repeat:no-repeat"></span>
+<div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:900;color:#042D7C">Your request summary</div><div style="font-size:11px;opacity:.75">Shared with our expert on WhatsApp</div></div>
+</div>
+<div style="padding:4px 16px 10px;font-size:13px">
+<div style="display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #F0F1F3"><span style="opacity:.7">Service</span><span style="font-weight:700;text-align:right">{{ sumService }}</span></div>
+<div style="display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #F0F1F3"><span style="opacity:.7">Country</span><span style="font-weight:700;text-align:right">{{ sumCountry }}</span></div>
+<div style="display:flex;justify-content:space-between;gap:12px;padding:8px 0"><span style="opacity:.7">Target role</span><span style="font-weight:700;text-align:right">{{ sumRole }}</span></div>
+</div>
+</div>
+</sc-if>
+</div>
+<sc-if value="{{ askRole }}" hint-placeholder-val="{{ false }}">
+<form onSubmit="{{ sendRole }}" style="display:flex;gap:8px;padding:12px;border-top:1px solid #E3E4E8;background:#FFFFFF">
+<input value="{{ draft }}" onChange="{{ onDraft }}" placeholder="e.g. Data Analyst" style="flex:1;min-width:0;border:1.5px solid #E3E4E8;border-radius:999px;padding:12px 16px;font-family:'Lato',sans-serif;font-size:14px;outline:none;color:#2C3E50" style-focus="border-color:#042D7C">
+<button type="submit" style="background:#042D7C;color:#FFFFFF;border:none;border-radius:999px;padding:0 18px;font-weight:900;cursor:pointer;font-family:'Lato',sans-serif">Send</button>
+</form>
+</sc-if>
+<div style="padding:10px 12px 12px;background:#FFFFFF;border-top:1px solid #E3E4E8">
+<a href="{{ waLink }}" target="_blank" style="display:flex;align-items:center;gap:12px;background:#042D7C;color:#FFFFFF;border-radius:999px;padding:6px 18px 6px 6px;text-decoration:none;box-shadow:0 12px 26px -14px rgba(4,45,124,.8);transition:transform .2s" style-hover="background:#053BA0;color:#FFFFFF;transform:translateY(-1px)">
+<img src="assets/whatsapp.png" alt="WhatsApp" style="width:40px;height:40px;display:block;flex-shrink:0;object-fit:contain">
+<span style="flex:1;display:flex;flex-direction:column;line-height:1.2"><span style="font-weight:900;font-size:14px">{{ waLabel }}</span><span style="font-size:11px;opacity:.75;font-weight:700">Opens WhatsApp with your details</span></span>
+<span style="font-size:17px;font-weight:900">→</span>
+</a>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{ showNudge }}" hint-placeholder-val="{{ false }}">
+<div style="position:fixed;right:20px;bottom:92px;z-index:61;width:min(320px,calc(100vw - 40px));background:#FFFFFF;border-radius:22px 22px 6px 22px;box-shadow:0 24px 60px -20px rgba(4,45,124,.5);padding:16px 16px 14px;font-family:'Lato',sans-serif;color:#2C3E50;animation:sk-pop .35s cubic-bezier(.2,.8,.2,1) both">
+<button onClick="{{ dismissNudge }}" aria-label="Dismiss" style="position:absolute;top:10px;right:10px;width:26px;height:26px;border-radius:50%;border:none;background:#F0F1F3;color:#2C3E50;cursor:pointer;font-size:14px;line-height:1">×</button>
+<div style="display:flex;gap:12px;align-items:flex-start;padding-right:22px">
+<span style="width:42px;height:42px;border-radius:50%;flex-shrink:0;display:block;background-image:url(assets/priya.png);background-size:150%;background-position:50% 22%;background-repeat:no-repeat"></span>
+<div><div style="font-weight:900;font-size:14px;color:#042D7C;margin-bottom:4px">Priya · Skilleaze</div><div style="font-size:14px;line-height:1.5">Hi! Need help choosing the right service? I can point you to the best option in under a minute.</div></div>
+</div>
+<button onClick="{{ openFromNudge }}" style="margin-top:12px;width:100%;background:#042D7C;color:#FFFFFF;border:none;border-radius:999px;padding:11px 16px;font-family:'Lato',sans-serif;font-weight:900;font-size:14px;cursor:pointer" style-hover="background:#053BA0">Yes, help me</button>
+</div>
+</sc-if>
+<button onClick="{{ toggle }}" style="position:fixed;right:20px;bottom:20px;z-index:60;background:#042D7C;color:#FFFFFF;border:none;border-radius:999px;padding:7px 20px 7px 7px;cursor:pointer;box-shadow:0 14px 34px -12px rgba(4,45,124,.6);display:flex;align-items:center;gap:12px;font-family:'Lato',sans-serif;text-align:left" style-hover="background:#053BA0">
+<span style="position:relative;flex-shrink:0"><span style="width:48px;height:48px;border-radius:50%;display:block;background-image:url(assets/priya.png);background-size:150%;background-position:50% 22%;background-repeat:no-repeat;border:2px solid #FFFFFF;box-sizing:border-box"></span><span style="position:absolute;right:0;bottom:0;width:12px;height:12px;border-radius:50%;background:#2BB673;border:2px solid #042D7C"></span></span>
+<span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:900;font-size:15px">{{ launcherLabel }}</span><span style="font-size:12px;color:#E3E4E8">Priya · online now</span></span>
+</button>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;service&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const h = React.createElement;
+const SERV = ['ATS CV', 'Cover letter', 'Europass CV', 'LinkedIn', 'Job portal profile', 'Portfolio website', 'Interview prep', 'Not sure yet'];
+const CTRY = ['India', 'UAE', 'Saudi Arabia', 'Qatar', 'Kuwait', 'Bahrain', 'Oman', 'UK / Europe', 'Other'];
+class Component extends DCLogic {
+  state = { open: false, msgs: [], step: 'wait', typing: false, draft: '' };
+  bodyRef = React.createRef();
+  componentDidUpdate() { const b = this.bodyRef.current; if (b) b.scrollTop = b.scrollHeight; }
+  componentDidMount() {
+    let seen = false; try { seen = sessionStorage.getItem('sk-nudge') === '1'; } catch (e) {}
+    if (!seen) this.nt = setTimeout(() => { if (!this.state.open) { this.setState({ nudge: true }); window.SKSound && SKSound.pop(); try { sessionStorage.setItem('sk-nudge', '1'); } catch (e) {} } }, 20000);
+  }
+  componentWillUnmount() { clearTimeout(this.ct); clearTimeout(this.nt); }
+  dismissNudge = () => this.setState({ nudge: false });
+  openFromNudge = () => { this.setState({ nudge: false }); if (!this.state.open) this.toggle(); };
+  bot(texts, then) {
+    clearTimeout(this.ct);
+    const chain = (this.chainId = (this.chainId || 0) + 1);
+    const next = (i) => {
+      if (chain !== this.chainId) return;
+      if (i >= texts.length) { this.setState({ typing: false }); this.ct = setTimeout(() => then && then(), 450); return; }
+      const read = (i === 0 ? 1100 : 500) + Math.random() * 700;
+      const type = Math.min(1300 + texts[i].length * 38, 4200) + Math.random() * 600;
+      this.ct = setTimeout(() => {
+        this.setState({ typing: true });
+        this.ct = setTimeout(() => {
+          const id = chain + '-' + i;
+          window.SKSound && SKSound.pop();
+          this.setState(st => st.msgs.some(m => m.id === id) ? { typing: false } : { typing: false, msgs: [...st.msgs, { id, from: 'bot', text: texts[i] }] });
+          next(i + 1);
+        }, type);
+      }, read);
+    };
+    next(0);
+  }
+  me(text) { window.SKSound && SKSound.send(); this.setState(st => ({ msgs: [...st.msgs, { id: 'me' + st.msgs.length, from: 'me', text }], step: 'wait' })); }
+  toggle = () => {
+    const open = !this.state.open;
+    clearTimeout(this.nt);
+    this.setState({ open, nudge: false });
+    if (open && !this.started) {
+      this.started = true;
+      const pre = this.props.service;
+      if (pre) {
+        this.setState({ service: pre });
+        this.bot(['Hi there! I’m Priya from Skilleaze.', 'I see you’re looking at ' + pre + '. Great choice.', 'Which country are you applying in?'], () => this.setState({ step: 'country' }));
+      } else {
+        this.bot(['Hi there! I’m Priya from Skilleaze.', 'What would you like help with today?'], () => this.setState({ step: 'service' }));
+      }
+    }
+  };
+  pickService = (v) => { this.me(v); this.setState({ service: v }); this.bot([v === 'Not sure yet' ? 'No problem, that’s what we’re here for.' : 'Great choice.', 'Which country are you applying in?'], () => this.setState({ step: 'country' })); };
+  pickCountry = (v) => { this.me(v); this.setState({ country: v }); this.bot(['Got it.', 'And what role are you targeting?'], () => this.setState({ step: 'role' })); };
+  sendRole = (e) => {
+    e.preventDefault();
+    const v = (this.state.draft || '').trim(); if (!v) return;
+    this.me(v); this.setState({ role: v, draft: '' });
+    this.bot(['Perfect, thank you!', 'Our expert will review this with you on WhatsApp and confirm the scope, timeline and your 50% off price before anything is paid.', 'Tap the button below to continue. Your details are already in the message.'], () => this.setState({ step: 'done' }));
+  };
+  renderVals() {
+    const st = this.state, step = st.step;
+    const bubble = (from) => from === 'bot'
+      ? { alignSelf: 'flex-start', maxWidth: '82%', background: '#FFFFFF', border: '1px solid #E3E4E8', color: '#2C3E50', borderRadius: '18px 18px 18px 6px', padding: '10px 14px', fontSize: 14, lineHeight: 1.5, animation: 'sk-pop .25s both' }
+      : { alignSelf: 'flex-end', maxWidth: '82%', background: '#042D7C', color: '#FFFFFF', borderRadius: '18px 18px 6px 18px', padding: '10px 14px', fontSize: 14, lineHeight: 1.5, animation: 'sk-pop .25s both' };
+    const opts = step === 'service' ? SERV.map(l => ({ label: l, pick: () => this.pickService(l) }))
+      : step === 'country' ? CTRY.map(l => ({ label: l, pick: () => this.pickCountry(l) })) : [];
+    const msg = 'Hi Skilleaze! I chatted with Priya on your website.' + (st.service ? '\nService: ' + st.service : '') + (st.country ? '\nTarget country: ' + st.country : '') + (st.role ? '\nTarget role: ' + st.role : '');
+    const dot = (d) => h('span', { key: d, style: { width: 7, height: 7, borderRadius: '50%', background: '#042D7C', display: 'inline-block', animation: 'sk-dot 1.1s ' + d + 's infinite' } });
+    return {
+      chatOpen: st.open, toggle: this.toggle,
+      showNudge: !!st.nudge && !st.open, dismissNudge: this.dismissNudge, openFromNudge: this.openFromNudge, bodyRef: this.bodyRef,
+      launcherLabel: st.open ? 'Close chat' : 'Chat with us',
+      status: st.typing ? 'typing…' : 'Career advisor · online',
+      msgs: st.msgs.map(m => ({ text: m.text, style: bubble(m.from) })),
+      typingEl: st.typing ? h('div', { style: { alignSelf: 'flex-start', background: '#FFFFFF', border: '1px solid #E3E4E8', borderRadius: '18px 18px 18px 6px', padding: '12px 16px', display: 'flex', gap: 5 } }, dot(0), dot(.15), dot(.3)) : null,
+      options: opts, hasOptions: opts.length > 0 && !st.typing,
+      askRole: step === 'role' && !st.typing,
+      draft: st.draft, onDraft: (e) => this.setState({ draft: e.target.value }), sendRole: this.sendRole,
+      done: step === 'done',
+      sumService: st.service || '', sumCountry: st.country || '', sumRole: st.role || '',
+      waLabel: step === 'done' ? 'Continue on WhatsApp' : 'Chat with our expert',
+      waLink: 'https://wa.me/971567053289?text=' + encodeURIComponent(msg)
+    };
+  }
+}
+</script>
+</body>
+</html>

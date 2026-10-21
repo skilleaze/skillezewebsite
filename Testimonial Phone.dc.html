@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="width:280px;height:580px;background:#0E0F12;border-radius:46px;padding:10px;box-sizing:border-box;box-shadow:0 40px 80px -40px rgba(4,45,124,.6),inset 0 0 0 2px #2A2C31;flex-shrink:0">
+<div style="width:100%;height:100%;border-radius:37px;overflow:hidden;display:flex;flex-direction:column;background:{{ bg }};position:relative;font-family:-apple-system,'Segoe UI',Roboto,sans-serif">
+<div style="position:absolute;top:9px;left:50%;transform:translateX(-50%);width:88px;height:24px;border-radius:999px;background:#0E0F12;z-index:2"></div>
+<div style="height:42px;flex-shrink:0;display:flex;justify-content:space-between;align-items:center;padding:6px 22px 0;font-size:12px;font-weight:700;color:{{ statusColor }};background:{{ headBg }}"><span>{{ clock }}</span><span style="display:flex;gap:4px;align-items:center"><span style="width:16px;height:9px;border-radius:2px;border:1.5px solid currentColor;box-sizing:border-box"></span></span></div>
+<div style="flex-shrink:0;display:flex;align-items:center;gap:10px;padding:8px 14px 10px;background:{{ headBg }};color:{{ headText }}">
+<span style="font-size:18px;line-height:1">‹</span>
+<span style="width:30px;height:30px;border-radius:50%;background:#8696A0;color:#FFFFFF;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700">{{ initial }}</span>
+<div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:700;letter-spacing:.02em">{{ label }}</div><div style="font-size:10px;opacity:.7">Name hidden for privacy</div></div>
+</div>
+<div style="flex:1;overflow:hidden;padding:12px 10px;display:flex;flex-direction:column;justify-content:flex-end;gap:5px">
+<sc-for list="{{ rows }}" as="m" hint-placeholder-count="4">
+<div style="{{ m.style }}"><span style="white-space:pre-line">{{ m.text }}</span><span style="{{ m.timeStyle }}">{{ m.time }}</span></div>
+</sc-for>
+</div>
+<div style="flex-shrink:0;display:flex;align-items:center;gap:8px;padding:8px 10px 18px;background:{{ bg }}"><div style="flex:1;height:32px;border-radius:999px;background:{{ inputBg }}"></div><div style="width:32px;height:32px;border-radius:50%;background:#00A884"></div></div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:300,&quot;height&quot;:600},&quot;dark&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;label&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Skilleaze client&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;initial&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;•&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;clock&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;9:41&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;msgs&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;{me:boolean,text:string,time?:string}[]&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const dark = this.props.dark ?? true;
+    const msgs = this.props.msgs ?? [
+      { me: true, text: 'Your ATS-friendly CV is ready. We wish you the best for your job search.', time: '4:19 PM' },
+      { me: false, text: 'Thank you so much!', time: '4:21 PM' }
+    ];
+    const T = dark
+      ? { bg: '#0B141A', head: '#1F2C34', headText: '#E9EDEF', out: '#005C4B', in: '#202C33', text: '#E9EDEF', input: '#202C33' }
+      : { bg: '#EFEAE2', head: '#FFFFFF', headText: '#111B21', out: '#D9FDD3', in: '#FFFFFF', text: '#111B21', input: '#FFFFFF' };
+    return {
+      bg: T.bg, headBg: T.head, headText: T.headText, statusColor: T.headText, inputBg: T.input,
+      clock: this.props.clock ?? '9:41',
+      label: this.props.label ?? 'Skilleaze client',
+      initial: this.props.initial ?? '•',
+      rows: msgs.map(m => ({
+        text: m.text, time: m.time || '',
+        style: { alignSelf: m.me ? 'flex-end' : 'flex-start', maxWidth: '84%', background: m.me ? T.out : T.in, color: T.text,
+          borderRadius: m.me ? '10px 10px 2px 10px' : '10px 10px 10px 2px', padding: '6px 9px 5px', fontSize: 12.5, lineHeight: 1.35,
+          boxShadow: dark ? 'none' : '0 1px 0 rgba(11,20,26,.08)', display: 'flex', flexDirection: 'column', gap: 2 },
+        timeStyle: { alignSelf: 'flex-end', fontSize: 9.5, opacity: .6 }
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>
