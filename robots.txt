@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /Service%20Page.dc.html
+Disallow: /Priya%20Chat.dc.html
+Disallow: /Testimonial%20Phone.dc.html
+
+Sitemap: https://skilleaze.com/sitemap.xml
