@@ -1,6 +1,6 @@
 (function () {
   if (window.__skfx) return; window.__skfx = true;
-  var pre = new Image(); pre.src = 'https://08bd6e0585.imgdist.com/pub/bfra/pxl5qk0l/8iq/vzp/k88/Logo.png';
+  var pre = new Image(); pre.src = 'assets/logo-blue.png';
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var st = document.createElement('style');
   st.textContent = '@keyframes skfx-in{from{opacity:0}to{opacity:1}}' +
@@ -37,7 +37,7 @@
   var done = function () { clearInterval(trickle); bar.style.width = '100%'; setTimeout(function () { bar.style.opacity = '0'; }, 250); };
   if (document.readyState === 'complete') setTimeout(done, 300); else window.addEventListener('load', function () { setTimeout(done, 200); });
   setTimeout(done, 6000);
-  function curtain(){var c=document.createElement('div');c.id='skfx-cur';c.innerHTML='<div class="ring"><div class="disc"><img src="https://08bd6e0585.imgdist.com/pub/bfra/pxl5qk0l/8iq/vzp/k88/Logo.png" alt=""></div></div><div class="tag">Career Simplified</div>';return c;}
+  function curtain(){var c=document.createElement('div');c.id='skfx-cur';c.innerHTML='<div class="ring"><div class="disc"><img src="assets/logo-blue.png" alt=""></div></div><div class="tag">Career Simplified</div>';return c;}
   try { if (sessionStorage.getItem('skfx-nav') === '1') { sessionStorage.removeItem('skfx-nav'); var arr = curtain(); arr.style.transform = 'none'; var put = function(){ if (!document.body) return setTimeout(put, 10); document.body.appendChild(arr); setTimeout(function(){ arr.style.transform = 'translateY(-100%)'; setTimeout(function(){ arr.remove(); }, 650); }, 380); }; put(); } } catch (e) {}
 
   // scroll progress
