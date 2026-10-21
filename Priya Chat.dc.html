@@ -19,7 +19,7 @@
 <sc-if value="{{ chatOpen }}" hint-placeholder-val="{{ false }}">
 <div style="position:fixed;right:16px;bottom:100px;z-index:60;width:min(430px,calc(100vw - 32px));height:min(660px,calc(100vh - 130px));background:#FFFFFF;border-radius:26px;box-shadow:0 30px 80px -20px rgba(4,45,124,.45);display:flex;flex-direction:column;overflow:hidden;animation:sk-pop .3s cubic-bezier(.2,.8,.2,1) both;font-family:'Lato',sans-serif;color:#2C3E50">
 <div style="background:#042D7C;color:#FFFFFF;padding:18px 18px 16px;display:flex;align-items:center;gap:12px">
-<div style="position:relative;flex-shrink:0"><span style="width:54px;height:54px;border-radius:50%;display:block;background-image:url(assets/priya-sm.png);background-size:150%;background-position:50% 22%;background-repeat:no-repeat;border:2px solid #FFFFFF;box-sizing:border-box"></span><span style="position:absolute;right:0;bottom:1px;width:12px;height:12px;border-radius:50%;background:#2BB673;border:2px solid #042D7C"></span></div>
+<div style="position:relative;flex-shrink:0"><span style="width:54px;height:54px;border-radius:50%;display:block;background-image:url(assets/priya.jpg);background-size:cover;background-position:center;background-repeat:no-repeat;border:2px solid #FFFFFF;box-sizing:border-box"></span><span style="position:absolute;right:0;bottom:1px;width:12px;height:12px;border-radius:50%;background:#2BB673;border:2px solid #042D7C"></span></div>
 <div style="flex:1;min-width:0"><div style="font-weight:900;font-size:17px">Priya</div><div style="font-size:12px;color:#E3E4E8">{{ status }}</div></div>
 <button onClick="{{ toggle }}" aria-label="Close chat" style="background:rgba(255,255,255,.12);border:none;color:#FFFFFF;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px;line-height:1">×</button>
 </div>
@@ -38,7 +38,7 @@
 <sc-if value="{{ done }}" hint-placeholder-val="{{ false }}">
 <div style="align-self:stretch;margin-top:8px;background:#FFFFFF;border:1px solid #E3E4E8;border-radius:20px;overflow:hidden;animation:sk-pop .3s both">
 <div style="padding:14px 16px 12px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #E3E4E8">
-<span style="width:34px;height:34px;border-radius:50%;display:block;background-image:url(assets/priya-sm.png);background-size:150%;background-position:50% 22%;background-repeat:no-repeat"></span>
+<span style="width:34px;height:34px;border-radius:50%;display:block;background-image:url(assets/priya.jpg);background-size:cover;background-position:center;background-repeat:no-repeat"></span>
 <div style="flex:1;min-width:0"><div style="font-size:13px;font-weight:900;color:#042D7C">Your request summary</div><div style="font-size:11px;opacity:.75">Shared with our expert on WhatsApp</div></div>
 </div>
 <div style="padding:4px 16px 10px;font-size:13px">
@@ -68,14 +68,14 @@
 <div style="position:fixed;right:20px;bottom:92px;z-index:61;width:min(320px,calc(100vw - 40px));background:#FFFFFF;border-radius:22px 22px 6px 22px;box-shadow:0 24px 60px -20px rgba(4,45,124,.5);padding:16px 16px 14px;font-family:'Lato',sans-serif;color:#2C3E50;animation:sk-pop .35s cubic-bezier(.2,.8,.2,1) both">
 <button onClick="{{ dismissNudge }}" aria-label="Dismiss" style="position:absolute;top:10px;right:10px;width:26px;height:26px;border-radius:50%;border:none;background:#F0F1F3;color:#2C3E50;cursor:pointer;font-size:14px;line-height:1">×</button>
 <div style="display:flex;gap:12px;align-items:flex-start;padding-right:22px">
-<span style="width:42px;height:42px;border-radius:50%;flex-shrink:0;display:block;background-image:url(assets/priya-sm.png);background-size:150%;background-position:50% 22%;background-repeat:no-repeat"></span>
+<span style="width:42px;height:42px;border-radius:50%;flex-shrink:0;display:block;background-image:url(assets/priya.jpg);background-size:cover;background-position:center;background-repeat:no-repeat"></span>
 <div><div style="font-weight:900;font-size:14px;color:#042D7C;margin-bottom:4px">Priya · Skilleaze</div><div style="font-size:14px;line-height:1.5">Hi! Need help choosing the right service? I can point you to the best option in under a minute.</div></div>
 </div>
 <button onClick="{{ openFromNudge }}" style="margin-top:12px;width:100%;background:#042D7C;color:#FFFFFF;border:none;border-radius:999px;padding:11px 16px;font-family:'Lato',sans-serif;font-weight:900;font-size:14px;cursor:pointer" style-hover="background:#053BA0">Yes, help me</button>
 </div>
 </sc-if>
 <button onClick="{{ toggle }}" style="position:fixed;right:20px;bottom:20px;z-index:60;background:#042D7C;color:#FFFFFF;border:none;border-radius:999px;padding:7px 20px 7px 7px;cursor:pointer;box-shadow:0 14px 34px -12px rgba(4,45,124,.6);display:flex;align-items:center;gap:12px;font-family:'Lato',sans-serif;text-align:left" style-hover="background:#053BA0">
-<span style="position:relative;flex-shrink:0"><span style="width:48px;height:48px;border-radius:50%;display:block;background-image:url(assets/priya-sm.png);background-size:150%;background-position:50% 22%;background-repeat:no-repeat;border:2px solid #FFFFFF;box-sizing:border-box"></span><span style="position:absolute;right:0;bottom:0;width:12px;height:12px;border-radius:50%;background:#2BB673;border:2px solid #042D7C"></span></span>
+<span style="position:relative;flex-shrink:0"><span style="width:48px;height:48px;border-radius:50%;display:block;background-image:url(assets/priya.jpg);background-size:cover;background-position:center;background-repeat:no-repeat;border:2px solid #FFFFFF;box-sizing:border-box"></span><span style="position:absolute;right:0;bottom:0;width:12px;height:12px;border-radius:50%;background:#2BB673;border:2px solid #042D7C"></span></span>
 <span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:900;font-size:15px">{{ launcherLabel }}</span><span style="font-size:12px;color:#E3E4E8">Priya · online now</span></span>
 </button>
 </x-dc>

@@ -3,7 +3,7 @@
   "short_name": "Skilleaze",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#042D7C",
+  "background_color": "#E3E4E8",
   "theme_color": "#042D7C",
   "icons": [
     {
