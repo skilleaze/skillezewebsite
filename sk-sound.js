@@ -48,12 +48,13 @@
     isOn: on,
     toggle: function () { try { localStorage.setItem('sk-sound', on() ? 'off' : 'on'); } catch (e) {} render(); if (on()) S.pop(); return on(); }
   };
+  S.click = S.swipe = S.send = function () {};
   window.SKSound = S;
   var last = 0;
   document.addEventListener('pointerdown', function (e) {
     if (pendingIntro) { pendingIntro = false; }
     var t = e.target && e.target.closest && e.target.closest('a,button,summary,[role=button]');
-    if (t && !t.hasAttribute('data-sk-silent') && Date.now() - last > 60) { last = Date.now(); S.click(); }
+    
   }, true);
   var btn;
   function render() {
