@@ -134,3 +134,5 @@
   });
   window.addEventListener('pageshow', function (ev) { if (ev.persisted) { var c = document.getElementById('skfx-cur'); if (c) c.remove(); } });
 })();
+
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href').slice(1);e.preventDefault();if(!id||id==='top'){window.scrollTo({top:0,behavior:'smooth'});}else{var t=document.getElementById(id);if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-16,behavior:'smooth'});}history.replaceState(null,'',location.pathname+(id?'#'+id:''));},true); /* hash-fix */
