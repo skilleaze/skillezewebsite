@@ -175,7 +175,7 @@ details[open] .faq-plus{transform:rotate(45deg)}
 <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><div style="font-family:'Bebas Neue',sans-serif;font-size:38px;line-height:1;color:#042D7C">{{ p.portfolio }}</div><span style="font-size:17px;font-weight:700;text-decoration:line-through;opacity:.55">{{ w.portfolio }}</span><span style="border:1.5px solid currentColor;border-radius:999px;padding:3px 10px 2px;font-size:11px;font-weight:900;letter-spacing:.12em;align-self:center">50% OFF</span></div>
 </article>
 
-<article style="background:#2C3E50;color:#FFFFFF;border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:16px;min-height:300px;position:relative;cursor:pointer;transition:transform .25s;grid-column:1/-1" style-hover="transform:translateY(-4px)">
+<article style="background:#2C3E50;color:#FFFFFF;border-radius:28px;padding:36px;display:flex;flex-direction:column;gap:16px;min-height:300px;position:relative;cursor:pointer;transition:transform .25s" style-hover="transform:translateY(-4px)">
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:24px;align-items:end">
 <div>
 <span style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.14em;color:#E3E4E8">07 · Practice with the pros</span>
@@ -213,6 +213,33 @@ details[open] .faq-plus{transform:rotate(45deg)}
 <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:28px"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;line-height:1;color:#E3E4E8">04</div><div style="font-weight:900;font-size:17px;margin:14px 0 6px">We build &amp; check</div><div style="font-size:14px;line-height:1.55;color:#E3E4E8">Written for your role, checked line by line.</div></div>
 <div style="background:#FFFFFF;color:#042D7C;border-radius:22px;padding:28px"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;line-height:1;color:#053BA0">05</div><div style="font-weight:900;font-size:17px;margin:14px 0 6px">You’re ready</div><div style="font-size:14px;line-height:1.55;color:#2C3E50">Final files in the agreed format.</div></div>
 </div>
+</div>
+</section>
+
+<section id="office" style="max-width:1180px;margin:0 auto;padding:112px 24px 0">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:32px">
+<div>
+<div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.16em;color:#053BA0;margin-bottom:10px">Our office</div>
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4vw,46px);line-height:.95;color:#042D7C;margin:0">Meet us <span style="font-style:italic;font-weight:600">where we work.</span></h2>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:16px"><div style="width:100%"><x-import component-from-global-scope="sk-player" from="./sk-player.js" src="assets/skilleaze-office.webm, assets/skilleaze-office.mp4" poster="assets/office-cover.png" label="Watch our office" hint-size="100%,480px"></x-import></div></div>
+</section>
+<section id="reviews" style="padding:128px 0 0">
+<div style="max-width:1180px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px">
+<div>
+<div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.16em;color:#053BA0;margin-bottom:10px">Client reviews</div>
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4vw,46px);line-height:.95;color:#042D7C;margin:0">Real messages. <span style="font-style:italic;font-weight:600">Real people.</span></h2>
+</div>
+<p style="font-size:15px;line-height:1.6;margin:0;max-width:380px">Real WhatsApp messages from Skilleaze clients. Names and files hidden for privacy. Individual results vary.</p>
+</div>
+<div ref="{{ revRef }}" onPointerEnter="{{ revPause }}" onPointerLeave="{{ revResume }}" onTouchStart="{{ revPause }}" onTouchEnd="{{ revSwipe }}" class="sk-noscroll" style="display:flex;gap:28px;overflow-x:auto;padding:10px max(24px,calc((100vw - 1232px)/2)) 24px;scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch">
+<sc-for list="{{ reviewsLoop }}" as="t" hint-placeholder-count="4">
+<div style="scroll-snap-align:start;flex-shrink:0;display:flex;flex-direction:column;gap:18px;width:280px">
+<dc-import name="Testimonial Phone" msgs="{{ t.msgs }}" dark="{{ t.dark }}" clock="{{ t.clock }}" initial="" hint-size="280px,580px"></dc-import>
+<div style="display:flex;flex-direction:column;gap:8px;padding:0 4px"><span style="align-self:flex-start;font-size:11px;font-weight:900;letter-spacing:.14em;color:#053BA0;border:1.5px solid #E3E4E8;border-radius:999px;padding:5px 11px">{{ t.tag }}</span><div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:22px;line-height:1.1;color:#042D7C">“{{ t.quote }}”</div></div>
+</div>
+</sc-for>
 </div>
 </section>
 
@@ -263,33 +290,6 @@ details[open] .faq-plus{transform:rotate(45deg)}
 <div style="display:flex;gap:12px;align-items:flex-start"><span style="flex:0 0 26px;height:26px;border-radius:50%;background:#E3E4E8;color:#2C3E50;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center">✕</span><div><div style="font-size:11px;font-weight:900;letter-spacing:.12em;color:#6b7785;margin-bottom:2px">FREE TOOLS / DIY</div><div style="font-size:15px;line-height:1.5;color:#2C3E50">Hours of trial and error</div></div></div>
 <div style="display:flex;gap:12px;align-items:flex-start;background:#F8F9FA;border-radius:16px;padding:12px"><span style="flex:0 0 26px;height:26px;border-radius:50%;background:#042D7C;color:#FFFFFF;font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center">✓</span><div><div style="font-size:11px;font-weight:900;letter-spacing:.12em;color:#053BA0;margin-bottom:2px">WITH SKILLEAZE</div><div style="font-size:15px;line-height:1.5;font-weight:700;color:#042D7C">One WhatsApp chat. We do the work and confirm the price first.</div></div></div>
 </div>
-</div>
-</section>
-
-<section id="office" style="max-width:1180px;margin:0 auto;padding:112px 24px 0">
-<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:32px">
-<div>
-<div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.16em;color:#053BA0;margin-bottom:10px">Our office</div>
-<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4vw,46px);line-height:.95;color:#042D7C;margin:0">Meet us <span style="font-style:italic;font-weight:600">where we work.</span></h2>
-</div>
-</div>
-<div style="display:flex;flex-direction:column;align-items:center;gap:16px"><div style="width:100%"><x-import component-from-global-scope="sk-player" from="./sk-player.js" src="assets/skilleaze-office.webm, assets/skilleaze-office.mp4" poster="assets/office-cover.png" label="Watch our office" hint-size="100%,480px"></x-import></div></div>
-</section>
-<section id="reviews" style="padding:128px 0 0">
-<div style="max-width:1180px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px">
-<div>
-<div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.16em;color:#053BA0;margin-bottom:10px">Client reviews</div>
-<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4vw,46px);line-height:.95;color:#042D7C;margin:0">Real messages. <span style="font-style:italic;font-weight:600">Real people.</span></h2>
-</div>
-<p style="font-size:15px;line-height:1.6;margin:0;max-width:380px">Real WhatsApp messages from Skilleaze clients. Names and files hidden for privacy. Individual results vary.</p>
-</div>
-<div ref="{{ revRef }}" onPointerEnter="{{ revPause }}" onPointerLeave="{{ revResume }}" onTouchStart="{{ revPause }}" onTouchEnd="{{ revSwipe }}" class="sk-noscroll" style="display:flex;gap:28px;overflow-x:auto;padding:10px max(24px,calc((100vw - 1232px)/2)) 24px;scrollbar-width:none;-ms-overflow-style:none;-webkit-overflow-scrolling:touch">
-<sc-for list="{{ reviewsLoop }}" as="t" hint-placeholder-count="4">
-<div style="scroll-snap-align:start;flex-shrink:0;display:flex;flex-direction:column;gap:18px;width:280px">
-<dc-import name="Testimonial Phone" msgs="{{ t.msgs }}" dark="{{ t.dark }}" clock="{{ t.clock }}" initial="" hint-size="280px,580px"></dc-import>
-<div style="display:flex;flex-direction:column;gap:8px;padding:0 4px"><span style="align-self:flex-start;font-size:11px;font-weight:900;letter-spacing:.14em;color:#053BA0;border:1.5px solid #E3E4E8;border-radius:999px;padding:5px 11px">{{ t.tag }}</span><div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:22px;line-height:1.1;color:#042D7C">“{{ t.quote }}”</div></div>
-</div>
-</sc-for>
 </div>
 </section>
 <section style="max-width:1180px;margin:0 auto;padding:112px 24px">
