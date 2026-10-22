@@ -79,7 +79,7 @@
 </sc-if>
 <button id="sk-launch" onClick="{{ toggle }}" style="position:fixed;right:20px;bottom:20px;z-index:60;background:#042D7C;color:#FFFFFF;border:none;border-radius:999px;padding:7px 20px 7px 7px;cursor:pointer;box-shadow:0 14px 34px -12px rgba(4,45,124,.6);display:flex;align-items:center;gap:12px;font-family:'Lato',sans-serif;text-align:left" style-hover="background:#053BA0">
 <span style="position:relative;flex-shrink:0"><span style="width:48px;height:48px;border-radius:50%;display:block;background-image:url(assets/priya.jpg);background-size:cover;background-position:center;background-repeat:no-repeat;border:2px solid #FFFFFF;box-sizing:border-box"></span><span style="position:absolute;right:0;bottom:0;width:12px;height:12px;border-radius:50%;background:#2BB673;border:2px solid #042D7C"></span></span>
-<span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:900;font-size:15px">{{ launcherLabel }}</span><span style="font-size:12px;color:#E3E4E8">Priya · online now</span></span>
+<span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:900;font-size:15px;white-space:nowrap">{{ launcherLabel }}</span><span style="font-size:12px;color:#E3E4E8;white-space:nowrap">Priya · online now</span></span>
 </button>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;service&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
@@ -92,7 +92,7 @@ class Component extends DCLogic {
   componentDidUpdate() { const b = this.bodyRef.current; if (b) b.scrollTop = b.scrollHeight; }
   componentDidMount() {
     let seen = false; try { seen = sessionStorage.getItem('sk-nudge') === '1'; } catch (e) {}
-    if (!seen) this.nt = setTimeout(() => { if (!this.state.open) { this.setState({ nudge: true }); window.SKSound && SKSound.pop(); try { sessionStorage.setItem('sk-nudge', '1'); } catch (e) {} } }, 20000);
+    if (!seen) this.nt = setTimeout(() => { if (!this.state.open) { this.setState({ nudge: true }); window.SKSound && SKSound.notify(); try { sessionStorage.setItem('sk-nudge', '1'); } catch (e) {} } }, 20000);
   }
   componentWillUnmount() { clearTimeout(this.ct); clearTimeout(this.nt); }
   dismissNudge = () => this.setState({ nudge: false });
@@ -106,10 +106,10 @@ class Component extends DCLogic {
       const read = (i === 0 ? 1100 : 500) + Math.random() * 700;
       const type = Math.min(1300 + texts[i].length * 38, 4200) + Math.random() * 600;
       this.ct = setTimeout(() => {
-        this.setState({ typing: true });
+        this.setState({ typing: true }); window.SKSound && SKSound.typing();
         this.ct = setTimeout(() => {
           const id = chain + '-' + i;
-          window.SKSound && SKSound.pop();
+          window.SKSound && SKSound.msg();
           this.setState(st => st.msgs.some(m => m.id === id) ? { typing: false } : { typing: false, msgs: [...st.msgs, { id, from: 'bot', text: texts[i] }] });
           next(i + 1);
         }, type);
@@ -117,7 +117,7 @@ class Component extends DCLogic {
     };
     next(0);
   }
-  me(text) { window.SKSound && SKSound.send(); this.setState(st => ({ msgs: [...st.msgs, { id: 'me' + st.msgs.length, from: 'me', text }], step: 'wait' })); }
+  me(text) { window.SKSound && SKSound.sent(); this.setState(st => ({ msgs: [...st.msgs, { id: 'me' + st.msgs.length, from: 'me', text }], step: 'wait' })); }
   toggle = () => {
     const open = !this.state.open;
     clearTimeout(this.nt);

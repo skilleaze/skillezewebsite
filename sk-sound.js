@@ -48,6 +48,11 @@
     isOn: on,
     toggle: function () { try { localStorage.setItem('sk-sound', on() ? 'off' : 'on'); } catch (e) {} render(); if (on()) S.pop(); return on(); }
   };
+  S.msg = function () { if (!on()) return; tone(1046.5, 0, 0.14, 0.06); tone(1568, 0.07, 0.22, 0.05); };
+  S.sent = function () { if (!on()) return; tone(660, 0, 0.08, 0.05, 'triangle'); tone(990, 0.045, 0.1, 0.04); };
+  S.notify = function () { if (!on()) return; tone(784, 0, 0.18, 0.07); tone(1174.7, 0.11, 0.22, 0.06); tone(1568, 0.22, 0.4, 0.05); };
+  S.typing = function () { if (!on()) return; tone(1900, 0, 0.025, 0.018); tone(1700, 0.09, 0.025, 0.014); };
+  S.whoosh = function () { if (!on()) return; noise(0.55, 0.05, 300, 2400); tone(523.25, 0.18, 0.5, 0.035); tone(783.99, 0.28, 0.6, 0.03); };
   S.click = S.swipe = S.send = function () {};
   window.SKSound = S;
   var last = 0;
