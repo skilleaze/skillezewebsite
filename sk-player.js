@@ -93,3 +93,31 @@ var keys=document.createElement('div');keys.className='keys';var li='';hs.forEac
 var url=location.href.split('#')[0],t=encodeURIComponent((h1||{}).textContent||document.title);var sh=document.createElement('div');sh.className='share';sh.innerHTML='<span>Share this guide:</span><a target="_blank" rel="noopener" href="https://wa.me/?text='+t+'%20'+encodeURIComponent(url)+'">WhatsApp</a><a target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(url)+'">LinkedIn</a><button type="button">Copy link</button>';sh.querySelector('button').onclick=function(){navigator.clipboard&&navigator.clipboard.writeText(url);this.textContent='Copied'};art.insertBefore(sh,note||null);
 var bar=document.createElement('div');bar.className='rp';document.body.appendChild(bar);var on=function(){var r=art.getBoundingClientRect();var p=Math.min(1,Math.max(0,(-r.top)/(r.height-window.innerHeight)));bar.style.transform='scaleX('+p+')'};on();window.addEventListener('scroll',on,{passive:true});}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})(); /* blog-read */
+
+(function(){
+  if(window.__skShow)return;window.__skShow=1;var se=document.querySelector('script[src*="sk-player.js"]');var B=se?se.src.replace(/sk-player\.js.*$/,''):'/';
+  function run(){
+    var main=document.querySelector('main.w');if(!main||document.getElementById('sk-show'))return;
+    var t=(location.pathname+' '+((document.querySelector('h1')||{}).textContent||'')).toLowerCase();
+    var T;
+    if(/europass/.test(t))T={k:'Europass CV samples',h:'Europass CVs we have built',p:'Real Europass layouts we deliver, filled from each client\'s actual experience.',d:'europass',f:'ep',n:7,ext:'png',r:'382/540',alt:'Europass CV sample by Skilleaze'};
+    else if(/portfolio|personal-website|branding-website|personal website|branding website/.test(t))T={k:'Portfolio layouts',h:'Portfolio websites we have built',p:'Mobile-friendly personal websites with one link to share with recruiters.',d:'portfolio',f:'mockup-',n:5,ext:'jpg',r:'1600/1212',alt:'Portfolio website layout by Skilleaze',s:1};
+    else if(/linkedin|portal|naukri|indeed|bayt|gulftalent|foundit|monster|glassdoor/.test(t))T={k:'LinkedIn makeovers',h:'Profiles we have optimized',p:'Headlines, About sections and experience rewritten for recruiter search.',d:'linkedin',f:'profile-',n:10,ext:'jpg',r:'1400/1222',alt:'Optimized LinkedIn profile by Skilleaze',s:1};
+    else if(/cv|resume|cover/.test(t))T={k:'CV templates',h:'ATS-friendly CV designs we use',p:'Clean, parse-friendly layouts. Your CV is written from your real experience on one of these.',d:'cv',f:'cv-',n:22,ext:'png',r:'382/540',alt:'ATS-friendly CV template by Skilleaze'};
+    if(!T)return;
+    var pad=function(i){return T.f==='ep'?'ep-'+(i<10?'0':'')+i:T.s?T.f+i:T.f+(i<10?'0':'')+i};
+    var cards='';for(var i=1;i<=T.n;i++){var src=B+'assets/'+T.d+'/'+pad(i)+'.'+T.ext;cards+='<button type="button" class="skx-c" data-src="'+src+'" style="flex:0 0 '+(T.s?'min(78%,420px)':'min(46%,220px)')+';scroll-snap-align:start;border:1px solid #E3E4E8;background:#FFFFFF;border-radius:18px;padding:'+(T.s?'0':'10px')+';overflow:hidden;cursor:zoom-in;transition:transform .25s,box-shadow .25s"><img src="'+src+'" alt="'+T.alt+' '+i+'" loading="lazy" decoding="async" style="width:100%;aspect-ratio:'+T.r+';object-fit:cover;display:block;border-radius:'+(T.s?'0':'8px')+'"></button>';}
+    var sec=document.createElement('section');sec.id='sk-show';
+    sec.innerHTML='<div class="k">'+T.k+'</div><div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap"><div><h2 style="margin-bottom:6px">'+T.h+'</h2><p style="margin:0;max-width:560px">'+T.p+'</p></div><div style="display:flex;gap:8px"><button type="button" aria-label="Previous" class="skx-a" data-d="-1">‹</button><button type="button" aria-label="Next" class="skx-a" data-d="1">›</button></div></div><div class="skx-t" style="display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:18px 2px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch">'+cards+'</div>';
+    var st=document.createElement('style');st.textContent='#sk-show .skx-t::-webkit-scrollbar{display:none}#sk-show .skx-c:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(4,45,124,.14)}#sk-show .skx-a{width:44px;height:44px;border-radius:999px;border:1px solid #E3E4E8;background:#FFFFFF;color:#042D7C;font-size:24px;line-height:1;cursor:pointer}#sk-show .skx-a:hover{background:#042D7C;color:#FFFFFF}#skx-lb{position:fixed;inset:0;z-index:90;background:rgba(4,20,60,.86);display:flex;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}#skx-lb img{max-width:min(960px,100%);max-height:92vh;border-radius:12px;background:#FFFFFF}';
+    document.head.appendChild(st);
+    var secs=main.querySelectorAll(':scope > section'),after=null;
+    for(var j=0;j<secs.length;j++){var k=secs[j].querySelector('.k');if(k&&/social proof/i.test(k.textContent)){after=secs[j];break;}}
+    if(!after)after=main.querySelector('.hero');
+    if(after&&after.parentNode)after.parentNode.insertBefore(sec,after.nextSibling);else main.appendChild(sec);
+    var tr=sec.querySelector('.skx-t');
+    sec.addEventListener('click',function(e){var a=e.target.closest('.skx-a');if(a){tr.scrollBy({left:(+a.dataset.d)*tr.clientWidth*.8,behavior:'smooth'});return;}var c=e.target.closest('.skx-c');if(c){var lb=document.createElement('div');lb.id='skx-lb';lb.innerHTML='<img src="'+c.dataset.src+'" alt="">';lb.onclick=function(){lb.remove()};document.body.appendChild(lb);}});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'){var l=document.getElementById('skx-lb');if(l)l.remove();}});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
+})();
