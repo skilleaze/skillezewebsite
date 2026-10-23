@@ -1,3 +1,4 @@
+(function(){if(window.__ska)return;var s=document.createElement('script');s.async=true;s.src='/sk-analytics.js';document.head.appendChild(s);})();
 (function () {
   if (customElements.get('sk-player')) return;
   var I = {

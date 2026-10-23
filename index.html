@@ -49,7 +49,7 @@
 <x-dc>
 <helmet>
 <script src="./sk-sound.js"></script>
-<script src="./sk-fx.js?v=6"></script>
+<script src="./sk-fx.js?v=7"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
@@ -67,6 +67,7 @@ details[open] .faq-plus{transform:rotate(45deg)}
 @keyframes sk-dot{0%,80%,100%{transform:translateY(0);opacity:.35}40%{transform:translateY(-4px);opacity:1}}
 @keyframes sk-pop{from{transform:translateY(16px) scale(.97);opacity:0}to{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+[data-skmq]::-webkit-scrollbar{display:none}
 </style>
 <style id="sk-fit">@media (min-width:1024px){html{zoom:.82}}@media (min-width:1600px){html{zoom:.9}}</style>
 </helmet>
@@ -227,6 +228,10 @@ details[open] .faq-plus{transform:rotate(45deg)}
 </div>
 </section>
 
+<section id="work" style="padding:0 0 112px"><div style="max-width:1180px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:32px"><div><div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.16em;color:#053BA0;margin-bottom:10px">Our work</div><h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4vw,46px);line-height:.98;color:#042D7C;margin:0">See it before <span style="font-style:italic;font-weight:600">you order it.</span></h2></div><p style="font-size:15px;line-height:1.6;margin:0;max-width:400px">CV and Europass designs, live portfolio websites and real LinkedIn profiles we optimized. Tap any one to learn more.</p></div>
+<div data-skmq="1" style="display:flex;gap:20px;overflow-x:auto;scrollbar-width:none;padding:8px 24px 24px"><sc-for list="{{ workDocs }}" as="it" hint-placeholder-count="6"><a href="{{ it.href }}" style="flex:0 0 auto;width:clamp(170px,18vw,210px);display:flex;flex-direction:column;gap:10px;text-decoration:none" style-hover="transform:translateY(-6px)"><img src="{{ it.src }}" alt="{{ it.alt }}" loading="lazy" draggable="false" style="width:100%;aspect-ratio:794/1123;object-fit:cover;object-position:top;display:block;border-radius:12px;background:#FFFFFF;border:1px solid #E3E4E8;box-shadow:0 16px 36px rgba(4,45,124,.12)"><span style="font-size:12px;letter-spacing:.1em;font-weight:900;color:#053BA0;padding:0 4px">{{ it.title }}</span></a></sc-for></div>
+<div data-skmq="1" data-skmq-rev="1" style="display:flex;gap:20px;overflow-x:auto;scrollbar-width:none;padding:8px 24px 24px"><sc-for list="{{ workWeb }}" as="it" hint-placeholder-count="4"><a href="{{ it.href }}" style="flex:0 0 auto;width:clamp(280px,34vw,440px);display:flex;flex-direction:column;gap:10px;text-decoration:none" style-hover="transform:translateY(-6px)"><img src="{{ it.src }}" alt="{{ it.alt }}" loading="lazy" draggable="false" style="width:100%;aspect-ratio:1600/1000;object-fit:cover;object-position:top;display:block;border-radius:16px;background:#FFFFFF;border:1px solid #E3E4E8;box-shadow:0 16px 36px rgba(4,45,124,.14)"><span style="font-size:12px;letter-spacing:.1em;font-weight:900;color:#053BA0;padding:0 4px">{{ it.title }}</span></a></sc-for></div>
+</section>
 <section style="max-width:1180px;margin:0 auto;padding:0 24px 112px">
 <h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4vw,46px);line-height:.95;color:#042D7C;margin:0 0 40px">Made for <span style="font-style:italic;font-weight:600">every chapter.</span></h2>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px">
@@ -453,6 +458,16 @@ class Component extends DCLogic {
     this.revRaf = requestAnimationFrame(tick);
   }
   componentDidMount() {
+    this._mq = setInterval(() => {
+      document.querySelectorAll('[data-skmq]').forEach((el) => {
+        if (!el._b) { el._b = 1; el._x = el.scrollLeft; const hold = (ms) => () => { el._hold = Date.now() + ms; }; el.addEventListener('pointerdown', hold(3500), { passive: true }); el.addEventListener('touchstart', hold(3500), { passive: true }); el.addEventListener('wheel', hold(3500), { passive: true }); el.addEventListener('mouseenter', hold(1e9)); el.addEventListener('mouseleave', () => { el._hold = 0; el._x = el.scrollLeft; }); el.addEventListener('scroll', () => { if (el._hold && Date.now() < el._hold) el._x = el.scrollLeft; }, { passive: true }); }
+        if (el._hold && Date.now() < el._hold) return;
+        const half = el.scrollWidth / 2; if (half <= el.clientWidth) return;
+        const rev = el.hasAttribute('data-skmq-rev'); if (rev && !el._r) { el._r = 1; el._x = half; }
+        el._x += rev ? -0.6 : 0.6; if (el._x >= half) el._x -= half; if (el._x <= 0) el._x += half; el.scrollLeft = el._x;
+      });
+    }, 16);
+
     this.startRev();
     this.startTyper();
     if (this.state.intro) {
@@ -577,6 +592,9 @@ class Component extends DCLogic {
     const pill = (on) => ({ cursor: 'pointer', fontFamily: 'Lato, sans-serif', fontWeight: 700, fontSize: 13, padding: '8px 14px', borderRadius: 999,
       border: '1.5px solid ' + (on ? '#042D7C' : '#E3E4E8'), background: on ? '#FFFFFF' : 'transparent', color: on ? '#042D7C' : '#2C3E50' });
     return {
+      workDocs: (() => { const a = [];for (let i = 1; i <= 22; i++) { a.push({ src: 'assets/cv/cv-' + String(i).padStart(2, '0') + '.png', alt: 'ATS-friendly CV design ' + i, title: 'ATS CV · DESIGN ' + String(i).padStart(2, '0'), href: 'ats-cv/' }); if (i <= 7) a.push({ src: 'assets/europass/ep-0' + i + '.png', alt: 'Europass CV design ' + i, title: 'EUROPASS · DESIGN 0' + i, href: 'europass-cv/' }); } return a.concat(a.map(x => Object.assign({}, x))); })(),
+      workWeb: (() => { const n = ['The Minimalist', 'The Architect', 'The Creative', 'The Executive', 'The Futurist']; const a = []; for (let i = 1; i <= 10; i++) { if (i <= 5) a.push({ src: 'assets/portfolio/mockup-' + i + '.jpg', alt: n[i - 1] + ' portfolio template', title: 'PORTFOLIO · ' + n[i - 1].toUpperCase(), href: 'portfolio-website/' }); a.push({ src: 'assets/linkedin/profile-' + i + '.jpg', alt: 'LinkedIn profile optimized by Skilleaze', title: 'LINKEDIN · PROFILE ' + String(i).padStart(2, '0'), href: 'linkedin/' }); } return a.concat(a.map(x => Object.assign({}, x))); })(),
+      
       p: PRICES[region === 'gcc' ? country : region],
       w: WASP[region === 'gcc' ? country : region],
       isGcc: region === 'gcc',
