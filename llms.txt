@@ -28,6 +28,14 @@ Orders are placed on WhatsApp (+971 56 705 3289) or by email (hello@skilleaze.co
 - [CV writing services in India](https://www.skilleaze.com/cv-writing-services-india/)
 - [Example city page: Bangalore](https://www.skilleaze.com/bangalore/): each city has /{city}/{service}/ and /{city}/{keyword}/ pages
 
+## CV guides
+
+- [CV & resume guides](https://www.skilleaze.com/cv/): 300+ pages on CV makers, templates, formats, ATS checkers and UAE CVs
+- [CV maker](https://www.skilleaze.com/cv/cv-maker/)
+- [ATS friendly CV](https://www.skilleaze.com/cv/ats-friendly-cv/)
+- [UAE CV format](https://www.skilleaze.com/cv/uae-cv-format/)
+- [ATS checker](https://www.skilleaze.com/cv/ats-checker/)
+
 ## Job portal guides
 
 - [Naukri](https://www.skilleaze.com/naukri/)
