@@ -27,3 +27,4 @@ Allow: /
 
 Sitemap: https://www.skilleaze.com/sitemap-index.xml
 Sitemap: https://www.skilleaze.com/sitemap.xml
+Sitemap: https://www.skilleaze.com/sitemap-keywords.xml
