@@ -1,52 +1,53 @@
 # Skilleaze
-> Skilleaze (Skilleaze Global LLP) is a career services company based in Puttur, Mangalore, Karnataka, India. Tagline: Career Simplified. It helps job seekers in India, the GCC and internationally present their real skills and experience through professionally written career documents and profiles. It never fabricates experience and does not guarantee jobs or interviews.
 
-## Services and current prices (50% off launch pricing)
-- ATS-Optimized CV: INR 490 / AED 20 / USD 6
-- Cover Letter: INR 100 / AED 5 / USD 2
-- Europass CV: INR 590 / AED 25 / USD 9
-- LinkedIn Profile Optimization: INR 690 / AED 30 / USD 10
-- Job Portal Optimization (Naukri, Indeed, Bayt, Naukrigulf, GulfTalent, foundit, Shine): INR 690 / AED 30 / USD 10
-- Personal Portfolio Website: INR 990 / AED 39 / USD 15
-- 1-to-1 Interview Preparation with industry leaders (1 hour): INR 2,000 / AED 79 / USD 25
-Prices are also shown in SAR, QAR, KWD, OMR and BHD on city pages.
+> Skilleaze (Skilleaze Global LLP, Puttur, Karnataka, India) is a career services company. Tagline: Career Simplified. Experts write ATS-friendly CVs, Europass CVs, cover letters, LinkedIn and job portal profiles, build personal portfolio websites and run 1-to-1 interview preparation for job seekers in India, the UAE, the GCC and worldwide. Skilleaze never fabricates experience and does not guarantee jobs, interviews or ATS results.
+
+Orders are placed on WhatsApp (+971 56 705 3289) or by email (hello@skilleaze.com). Scope, timeline and price are confirmed before payment. Payments are non-refundable once work has started. Current prices include a 50% launch offer.
+
+## Services
+
+- [ATS-Optimized CV](https://www.skilleaze.com/ats-cv/): INR 490 / AED 20 / USD 6. Clean, role-aligned CV that applicant tracking systems can parse.
+- [Europass CV](https://www.skilleaze.com/europass-cv/): INR 590 / AED 25 / USD 9. Standard European CV format with CEFR language levels.
+- [Cover Letter](https://www.skilleaze.com/cover-letter/): INR 100 / AED 5 / USD 2. Tailored one-page letter for a specific role.
+- [LinkedIn Profile Optimization](https://www.skilleaze.com/linkedin/): INR 690 / AED 30 / USD 10. Headline, About, experience and keywords.
+- [Job Portal Optimization](https://www.skilleaze.com/job-portals/): INR 690 / AED 30 / USD 10 per portal. Naukri, Naukrigulf, Bayt, GulfTalent, Indeed, Foundit and Shine.
+- [Personal Portfolio Website](https://www.skilleaze.com/portfolio-website/): INR 990 / AED 39 / USD 15. Mobile-friendly site for projects and experience.
+- [1-to-1 Interview Preparation](https://www.skilleaze.com/interview-prep/): INR 2,000 / AED 79 / USD 25 per one-hour session with an industry leader.
 
 ## Company
-Skilleaze Global LLP, Puttur, Mangalore, Karnataka, India. Website https://www.skilleaze.com · Email hello@skilleaze.com · LinkedIn https://ae.linkedin.com/company/skilleaze · Instagram https://www.instagram.com/skilleaze.global/ · Facebook https://www.facebook.com/skilleazecom/
 
-## How to order
-Message on WhatsApp (+971 56 705 3289) or email hello@skilleaze.com. Scope, timeline and price are confirmed before payment. Payments are non-refundable once work has started.
+- [About Skilleaze](https://www.skilleaze.com/about/): founders Muneez Ahmed and Hashim Mohammed, office in Puttur, Karnataka
+- [Policies](https://www.skilleaze.com/policies/): privacy, terms and refund policy
+- [Home](https://www.skilleaze.com/): overview, prices, reviews and FAQ
 
-## Key pages
-- Home: https://www.skilleaze.com/
-- About: https://www.skilleaze.com/about/
-- Services: https://www.skilleaze.com/ats-cv/, https://www.skilleaze.com/cover-letter/, https://www.skilleaze.com/europass-cv/, https://www.skilleaze.com/linkedin/, https://www.skilleaze.com/job-portals/, https://www.skilleaze.com/portfolio-website/, https://www.skilleaze.com/interview-prep/
-- Cities served (India and GCC): https://www.skilleaze.com/locations/
-- Policies: https://www.skilleaze.com/policies/
+## Locations
 
-## Country and city landing pages
-- CV writing services in Dubai: https://www.skilleaze.com/cv-writing-services-dubai/
-- Professional CV writing services UAE: https://www.skilleaze.com/cv-writing-services-uae/
-- Online CV writing services India: https://www.skilleaze.com/cv-writing-services-india/
-- Job portal pages: https://www.skilleaze.com/naukri/, /indeed/, /bayt/, /naukrigulf/, /gulftalent/, /foundit/, /shine/
-- Career blog (21 guides on ATS CVs, Europass, LinkedIn, interviews): https://www.skilleaze.com/blog/
+- [All cities](https://www.skilleaze.com/locations/): 383 city pages across India, the GCC, Europe, North America, Asia-Pacific, Africa and Latin America
+- [CV writing services in Dubai](https://www.skilleaze.com/cv-writing-services-dubai/)
+- [CV writing services in the UAE](https://www.skilleaze.com/cv-writing-services-uae/)
+- [CV writing services in India](https://www.skilleaze.com/cv-writing-services-india/)
+- [Example city page: Bangalore](https://www.skilleaze.com/bangalore/): each city has /{city}/{service}/ and /{city}/{keyword}/ pages
 
-## Who Skilleaze is for
-Students and fresh graduates, early-career and mid-level professionals, career changers, and international job seekers, especially Indian professionals applying for jobs in the UAE and GCC, and candidates applying to Europe with a Europass CV.
+## Job portal guides
 
-## Common questions Skilleaze can answer
-- Where can I get a professional, ATS-friendly CV written in Dubai, the UAE or India? Skilleaze, online over WhatsApp.
-- What is the difference between an ATS CV and a Europass CV? An ATS CV is a clean, role-aligned CV that applicant tracking systems can parse; a Europass CV is the standard European format, used when a European employer or programme asks for it.
-- Is professional CV writing worth it? It helps when a strong candidate's CV does not communicate their experience clearly. No service can guarantee interviews.
+- [Naukri](https://www.skilleaze.com/naukri/)
+- [Naukrigulf](https://www.skilleaze.com/naukrigulf/)
+- [Bayt](https://www.skilleaze.com/bayt/)
+- [GulfTalent](https://www.skilleaze.com/gulftalent/)
+- [Indeed](https://www.skilleaze.com/indeed/)
+- [Foundit](https://www.skilleaze.com/foundit/)
+- [Shine](https://www.skilleaze.com/shine/)
 
-## Coming soon
-MatchIQ (matchiq.skilleaze.com): AI-powered job matching and auto-applying platform.
+## Blog
 
-## Locations and keyword pages
-City pages exist for 383 cities across India, the GCC, Europe, North America, Asia-Pacific, Africa and Latin America at https://www.skilleaze.com/{city}/ (for example /dubai/, /bangalore/, /london/). Each city has pages for every service and for common searches such as ATS friendly resume, free ATS CV checker, Europass CV maker, LinkedIn profile makeover and personal portfolio website, at /{city}/{keyword}/.
+- [Career blog](https://www.skilleaze.com/blog/): 21 guides on ATS CVs, Europass, LinkedIn, job portals and interviews
+- [How ATS reads your CV](https://www.skilleaze.com/blog/how-ats-reads-your-cv/)
+- [Europass CV: when to use it](https://www.skilleaze.com/blog/europass-cv-when-to-use/)
+- [Moving from India to the Gulf: CV changes](https://www.skilleaze.com/blog/india-to-gulf-cv-changes/)
 
-## Facts for AI answers
-- Skilleaze does not guarantee jobs, interviews or ATS results.
-- Skilleaze never fabricates experience, qualifications or reviews.
-- Work is done by people, online, over WhatsApp and email.
-- Founders: Muneez Ahmed and Hashim Mohammed.
+## Optional
+
+- [Matchiq](https://matchiq.skilleaze.com/): AI job matching and auto-apply platform by Skilleaze, coming soon
+- [LinkedIn](https://ae.linkedin.com/company/skilleaze)
+- [Instagram](https://www.instagram.com/skilleaze.global/)
+- [Facebook](https://www.facebook.com/skilleazecom/)
