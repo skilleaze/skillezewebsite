@@ -337,6 +337,7 @@ const GAL = (() => {
     liItems: dup(Array.from({ length: 10 }, (_, i) => ({ src: 'assets/linkedin/profile-' + (i + 1) + '.jpg', alt: 'LinkedIn profile optimized by Skilleaze ' + (i + 1), title: 'Profile ' + String(i + 1).padStart(2, '0'), sub: 'Optimized by Skilleaze', ratio: '1400/760', href: 'https://wa.me/971567053289?text=' + encodeURIComponent('Hi Skilleaze, I’d like my LinkedIn profile optimized.') })))
   };
 })();
+const HIDDEN_SERVICES = ['interview']; // hidden for now — remove from this list to show it again
 const PAGES = { 'ats-cv': 'Service - ATS CV', 'cover-letter': 'Service - Cover Letter', 'europass': 'Service - Europass CV', 'linkedin': 'Service - LinkedIn', 'job-portals': 'Service - Job Portals', 'portfolio': 'Service - Portfolio Website', 'interview': 'Service - Interview Prep' };
 const PORTALS = [['naukri', 'Naukri', 'India', 'Resume headline, key skills and profile summary.'], ['indeed', 'Indeed', 'Global', 'Profile, skills, qualifications and preferences.'], ['naukrigulf', 'Naukrigulf', 'GCC', 'Profile title and skills for Gulf roles.'], ['bayt', 'Bayt', 'GCC & MENA', 'Summary, experience and specialties.'], ['gulftalent', 'GulfTalent', 'GCC', 'Professional profile for Gulf employers.'], ['foundit', 'foundit', 'India & GCC', 'Formerly Monster. Headline and skills.'], ['shine', 'Shine', 'India', 'Profile title, skills and summary.']];
 const fmt = (n) => n.toLocaleString('en-US');
@@ -369,7 +370,7 @@ class Component extends DCLogic {
       cvItems: GAL.cvItems, epItems: GAL.epItems, pfItems: GAL.pfItems, liItems: GAL.liItems,
       portals: PORTALS.map(([k, name, region, blurb]) => ({ name, region, blurb, href: F('Portal - ' + name) })),
       hasParent: !!s.parent, parentName: 'Job Portal Optimization', parentHref: F('Service - Job Portals'),
-      related: Object.entries(PAGES).filter(([k]) => k !== slug).map(([k, file]) => ({ name: S[k].name, href: F(file) }))
+      related: Object.entries(PAGES).filter(([k]) => k !== slug && !HIDDEN_SERVICES.includes(k)).map(([k, file]) => ({ name: S[k].name, href: F(file) }))
     };
   }
 }
