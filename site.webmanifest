@@ -1,20 +1,22 @@
 {
-  "name": "Skilleaze",
-  "short_name": "Skilleaze",
+  "name": "Skilleaze HQ",
+  "short_name": "Skilleaze HQ",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#E3E4E8",
-  "theme_color": "#042D7C",
+  "background_color": "#ffffff",
+  "theme_color": "#042d7c",
   "icons": [
     {
-      "src": "assets/fav-192.png",
-      "sizes": "192x192",
+      "src": "/apple-touch-icon-hq.png?v=6",
+      "sizes": "180x180",
       "type": "image/png"
     },
     {
-      "src": "assets/fav-512.png",
+      "src": "/icon-512.png?v=6",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
