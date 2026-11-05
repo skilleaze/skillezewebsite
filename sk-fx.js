@@ -11,7 +11,7 @@
     if(a.offsetWidth<120||a.offsetHeight<34||pinned(a))return;
     var nx=a.nextElementSibling;if(nx&&nx.hasAttribute('data-cvcta-btn'))return;
     var dark=L<0.5,b=document.createElement('a');
-    b.href=U;b.rel='noopener';b.setAttribute('data-cvcta-btn','1');b.setAttribute('data-cvcta','1');
+    b.href=U;b.target='_self';b.rel='noopener';b.setAttribute('data-cvcta-btn','1');b.setAttribute('data-cvcta','1');
     b.innerHTML='<span>Create your free CV</span>'+SVG;
     var s=b.style;s.display='inline-flex';s.alignItems='center';s.justifyContent='center';s.gap='10px';s.boxSizing='border-box';
     s.minHeight=a.offsetHeight+'px';s.padding='0 24px';s.borderRadius=cs.borderRadius;s.fontFamily=cs.fontFamily;s.fontSize=cs.fontSize;s.fontWeight='900';
@@ -30,3 +30,6 @@
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',soon);else soon();
   new MutationObserver(soon).observe(document.documentElement,{childList:true,subtree:true});
 })();
+
+/* Free CV links always open in the same tab */
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-cvcta-btn],a[href*="cvbuilder.skilleaze.com"]');if(!a||e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;e.preventDefault();e.stopPropagation();try{window.gtag&&gtag('event','free_cv_click',{location:location.pathname});}catch(x){}window.location.assign(a.href);},true);
