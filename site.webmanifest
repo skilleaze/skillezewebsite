@@ -3,18 +3,20 @@
   "short_name": "Skilleaze",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#E3E4E8",
+  "background_color": "#FFFFFF",
   "theme_color": "#042D7C",
   "icons": [
     {
-      "src": "assets/fav-192.png",
+      "src": "/assets/fav-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "assets/fav-512.png",
+      "src": "/assets/fav-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
