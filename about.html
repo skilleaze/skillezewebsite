@@ -58,6 +58,21 @@
 <script src="./sk-fx.js?v=14" defer></script>
 
 <style>
+/* sk-ui v2: premium polish */
+html{scroll-behavior:smooth}
+::selection{background:#dbe5fb;color:#042D7C}
+:focus-visible{outline:2px solid #053BA0;outline-offset:3px;border-radius:8px}
+h1,h2,h3{text-wrap:balance}
+.sk-cta a{min-height:56px;box-sizing:border-box}
+details summary{transition:color .2s}
+details[open]{border-color:#cfd6e4!important;box-shadow:0 1px 2px rgba(4,45,124,.04),0 14px 36px -24px rgba(4,45,124,.28)}
+article,details{transition:transform .25s,border-color .25s,box-shadow .25s}
+@media (max-width:640px){
+.sk-cta{flex-direction:column;align-items:stretch!important}
+.sk-cta a{width:100%;justify-content:center;text-align:center}
+section h2{font-size:clamp(30px,8.4vw,38px)!important}
+}
+
 body{margin:0;background:#F8F9FA;color:#2C3E50;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased}
 a{color:#053BA0;text-decoration:none}
 .sk-noscroll::-webkit-scrollbar{display:none}
@@ -65,10 +80,10 @@ a:hover{color:#042D7C}
 </style>
 <style id="sk-fit">@media (min-width:1024px){html{zoom:.82}}@media (min-width:1600px){html{zoom:.9}}</style>
 </helmet>
-<div style="min-height:100vh;background:#F8F9FA;overflow-x:hidden">
+<div style="min-height:100vh;background:#F8F9FA;overflow-x:clip">
 
-<header style="max-width:1180px;margin:0 auto;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
-<a href="./" style="display:flex;align-items:center"><img src="assets/wordmark-blue.webp" alt="Skilleaze" style="height:52px;width:auto;min-width:150px;object-fit:contain;display:block"></a>
+<header style="position:sticky;top:0;z-index:60;background:rgba(248,249,250,.86);-webkit-backdrop-filter:saturate(180%) blur(16px);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px solid rgba(227,228,232,.7);padding:12px max(24px,calc((100% - 1132px)/2));display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+<a href="./" style="display:flex;align-items:center"><img src="assets/wordmark-blue.webp" alt="Skilleaze" style="height:44px;width:auto;min-width:130px;object-fit:contain;display:block"></a>
 <nav style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;background:#FFFFFF;border:1px solid #E3E4E8;border-radius:999px;padding:6px;font-size:15px;font-weight:700">
 <a href="./" style="color:#2C3E50;padding:10px 16px;border-radius:999px" style-hover="background:#E3E4E8;color:#042D7C">Home</a>
 <a href="./#services" style="color:#2C3E50;padding:10px 16px;border-radius:999px" style-hover="background:#E3E4E8;color:#042D7C">Services</a>
@@ -78,8 +93,8 @@ a:hover{color:#042D7C}
 </header>
 
 <section id="top" style="max-width:1180px;margin:0 auto;padding:64px 24px 96px">
-<div style="display:inline-flex;align-items:center;gap:10px;border:1.5px solid #042D7C;border-radius:999px;padding:8px 18px 6px;margin-bottom:28px"><span style="width:8px;height:8px;border-radius:50%;background:#053BA0;margin-top:-2px"></span><span style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.14em;color:#042D7C">About Skilleaze · Est. 2025</span></div>
-<h1 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(40px,5.6vw,72px);line-height:.9;letter-spacing:-.02em;color:#042D7C;margin:0 0 40px;max-width:1150px">We don’t just create documents. <span style="font-style:italic;font-weight:600;color:#053BA0">We build profiles that open doors.</span></h1>
+<div style="display:inline-flex;align-items:center;gap:10px;border:1.5px solid #042D7C;border-radius:999px;padding:8px 18px 6px;margin-bottom:28px"><span style="width:8px;height:8px;border-radius:50%;background:#053BA0;margin-top:-2px"></span><span style="font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#042D7C">About Skilleaze · Est. 2025</span></div>
+<h1 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(40px,5.6vw,72px);line-height:1.04;letter-spacing:-.01em;color:#042D7C;margin:0 0 40px;max-width:1150px">We don’t just create documents. <span style="font-weight:600;color:#053BA0">We build profiles that open doors.</span></h1>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:40px;border-top:2px solid #042D7C;padding-top:32px">
 <p style="font-size:20px;line-height:1.6;margin:0;text-wrap:pretty">Skilleaze is a career advisory platform focused on how professionals present themselves in today’s competitive job market.</p>
 <p style="font-size:17px;line-height:1.7;margin:0;text-wrap:pretty">We craft ATS-optimized CVs and offer complete career support to make you more visible and better positioned. Every solution pairs strategic insight with a deep understanding of recruitment systems and hiring behavior.</p>
@@ -89,9 +104,9 @@ a:hover{color:#042D7C}
 <section style="padding:0 16px">
 <div style="max-width:1180px;margin:0 auto;background:#042D7C;color:#FFFFFF;border-radius:36px;padding:clamp(40px,6vw,96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:56px">
 <div>
-<div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.16em;color:#E3E4E8;margin-bottom:12px">Our story</div>
-<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(34px,4.4vw,54px);line-height:.92;margin:0 0 32px">Built from real experience <span style="font-style:italic;font-weight:600">in Dubai.</span></h2>
-<div style="border-left:3px solid #FFFFFF;padding:4px 0 4px 24px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:clamp(20px,2.2vw,26px);line-height:1.2">Most job seekers don’t lack capability. They lack the structure, positioning and presentation to stand out.</div>
+<div style="font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#E3E4E8;margin-bottom:12px">Our story</div>
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(34px,4.4vw,54px);line-height:1.04;margin:0 0 32px">Built from real experience <span style="font-weight:600">in Dubai.</span></h2>
+<div style="border-left:3px solid #FFFFFF;padding:4px 0 4px 24px;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(20px,2.2vw,26px);line-height:1.2">Most job seekers don’t lack capability. They lack the structure, positioning and presentation to stand out.</div>
 </div>
 <div style="display:flex;flex-direction:column;gap:20px;font-size:17px;line-height:1.7;color:#E3E4E8">
 <p style="margin:0">Working in Dubai’s highly competitive job market, we kept seeing the same gap between talent and opportunity. Capable professionals struggled to get interview calls, while a more strategic approach to applications was consistently opening doors for us.</p>
@@ -106,20 +121,20 @@ a:hover{color:#042D7C}
 <section id="office" style="max-width:1180px;margin:0 auto;padding:0 24px 0">
 <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:32px">
 <div>
-<div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.16em;color:#053BA0;margin-bottom:10px">Our office</div>
-<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4vw,46px);line-height:.95;color:#042D7C;margin:0">Inside <span style="font-style:italic;font-weight:600">our office.</span></h2>
+<div style="font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#053BA0;margin-bottom:10px">Our office</div>
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4vw,46px);line-height:1.04;color:#042D7C;margin:0">Inside <span style="font-weight:600">our office.</span></h2>
 </div>
 </div>
 <div style="display:flex;flex-direction:column;align-items:center;gap:16px"><div style="width:100%"><x-import component-from-global-scope="sk-player" from="./sk-player.js" src="assets/skilleaze-office.webm, assets/skilleaze-office.mp4" poster="assets/office-cover.png" label="Watch our office" hint-size="100%,480px"></x-import></div></div>
 </section>
-<section style="max-width:1180px;margin:0 auto;padding:112px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px">
+<section style="max-width:1180px;margin:0 auto;padding:clamp(64px,8vw,104px) 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px">
 <div style="background:#E3E4E8;border-radius:28px;padding:clamp(32px,4vw,56px);display:flex;flex-direction:column;gap:20px">
-<div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.16em;color:#053BA0">Our vision</div>
-<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(28px,3.4vw,38px);line-height:.98;color:#042D7C;margin:0">A globally trusted name <span style="font-style:italic;font-weight:600">in career services.</span></h2>
+<div style="font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#053BA0">Our vision</div>
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(28px,3.4vw,38px);line-height:1.04;color:#042D7C;margin:0">A globally trusted name <span style="font-weight:600">in career services.</span></h2>
 <p style="font-size:17px;line-height:1.7;margin:0">High-quality, results-focused support that’s accessible to professionals at every stage of their journey. We’re redefining how career support is delivered by combining quality, affordability and measurable impact.</p>
 </div>
 <div style="background:#FFFFFF;border:1px solid #E3E4E8;border-radius:28px;padding:clamp(32px,4vw,56px)">
-<div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.16em;color:#053BA0;margin-bottom:20px">Our approach</div>
+<div style="font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#053BA0;margin-bottom:20px">Our approach</div>
 <div style="display:grid;grid-template-columns:40px 1fr;gap:0 16px">
 <div style="display:flex;flex-direction:column;align-items:center"><span style="width:14px;height:14px;border-radius:50%;background:#042D7C;margin-top:6px"></span><span style="flex:1;width:2px;background:#E3E4E8"></span></div>
 <div style="padding-bottom:22px"><div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:22px;color:#042D7C">Understanding first</div><div style="font-size:15px;line-height:1.6">Every profile begins by evaluating your experience, skills, career direction and target market.</div></div>
@@ -131,9 +146,9 @@ a:hover{color:#042D7C}
 </div>
 </section>
 
-<section style="max-width:1180px;margin:0 auto;padding:0 24px 112px">
+<section style="max-width:1180px;margin:0 auto;padding:0 24px clamp(64px,8vw,104px)">
 <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px">
-<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4vw,46px);line-height:.95;color:#042D7C;margin:0">Why <span style="font-style:italic;font-weight:600">Skilleaze.</span></h2>
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4vw,46px);line-height:1.04;color:#042D7C;margin:0">Why <span style="font-weight:600">Skilleaze.</span></h2>
 <p style="font-size:17px;line-height:1.6;margin:0;max-width:420px">Our focus stays on clarity, precision and effectiveness in every detail we deliver.</p>
 </div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px">
@@ -145,11 +160,11 @@ a:hover{color:#042D7C}
 </div>
 </section>
 
-<section id="reviews" style="padding:0 0 112px">
+<section id="reviews" style="padding:0 0 clamp(64px,8vw,104px)">
 <div style="max-width:1180px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px">
 <div>
-<div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.16em;color:#053BA0;margin-bottom:10px">Client reviews</div>
-<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4vw,46px);line-height:.95;color:#042D7C;margin:0">In our clients’ <span style="font-style:italic;font-weight:600">own words.</span></h2>
+<div style="font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#053BA0;margin-bottom:10px">Client reviews</div>
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4vw,46px);line-height:1.04;color:#042D7C;margin:0">In our clients’ <span style="font-weight:600">own words.</span></h2>
 </div>
 <p style="font-size:15px;line-height:1.6;margin:0;max-width:380px">Real WhatsApp messages from Skilleaze clients. Names and files hidden for privacy. Individual results vary.</p>
 </div>
@@ -157,28 +172,28 @@ a:hover{color:#042D7C}
 <sc-for list="{{ reviewsLoop }}" as="t" hint-placeholder-count="4">
 <div style="scroll-snap-align:start;flex-shrink:0;display:flex;flex-direction:column;gap:18px;width:280px">
 <dc-import name="Testimonial Phone" msgs="{{ t.msgs }}" dark="{{ t.dark }}" clock="{{ t.clock }}" initial="" hint-size="280px,580px"></dc-import>
-<div style="display:flex;flex-direction:column;gap:8px;padding:0 4px"><span style="align-self:flex-start;font-size:11px;font-weight:900;letter-spacing:.14em;color:#053BA0;border:1.5px solid #E3E4E8;border-radius:999px;padding:5px 11px">{{ t.tag }}</span><div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:22px;line-height:1.1;color:#042D7C">“{{ t.quote }}”</div></div>
+<div style="display:flex;flex-direction:column;gap:8px;padding:0 4px"><span style="align-self:flex-start;font-size:11px;font-weight:900;letter-spacing:.14em;color:#053BA0;border:1.5px solid #E3E4E8;border-radius:999px;padding:5px 11px">{{ t.tag }}</span><div style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;line-height:1.1;color:#042D7C">“{{ t.quote }}”</div></div>
 </div>
 </sc-for>
 </div>
 </section>
-<section style="max-width:1180px;margin:0 auto;padding:0 24px 112px">
-<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4vw,46px);line-height:.95;color:#042D7C;margin:0 0 40px">Meet the <span style="font-style:italic;font-weight:600">founders.</span></h2>
+<section style="max-width:1180px;margin:0 auto;padding:0 24px clamp(64px,8vw,104px)">
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4vw,46px);line-height:1.04;color:#042D7C;margin:0 0 40px">Meet the <span style="font-weight:600">founders.</span></h2>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px">
 <div style="background:#FFFFFF;border:1px solid #E3E4E8;border-radius:28px;padding:20px;display:flex;align-items:center;gap:28px;flex-wrap:wrap">
 <div style="width:180px;height:180px;border-radius:50%;flex-shrink:0;background-image:url('assets/founder-muneez.png');background-size:104%;background-position:50% 0%;border:4px solid #E3E4E8"></div>
-<div><div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.14em;color:#053BA0;margin-bottom:6px">Co-founder</div><div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:30px;line-height:1;color:#042D7C">Muneez Ahmed</div></div>
+<div><div style="font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#053BA0;margin-bottom:6px">Co-founder</div><div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:30px;line-height:1;color:#042D7C">Muneez Ahmed</div></div>
 </div>
 <div style="background:#FFFFFF;border:1px solid #E3E4E8;border-radius:28px;padding:20px;display:flex;align-items:center;gap:28px;flex-wrap:wrap">
 <div style="width:180px;height:180px;border-radius:50%;flex-shrink:0;background-image:url('assets/founder-hashim.png');background-size:150%;background-position:50% 20%;border:4px solid #E3E4E8"></div>
-<div><div style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:.14em;color:#053BA0;margin-bottom:6px">Co-founder</div><div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:30px;line-height:1;color:#042D7C">Hashim Mohammed</div></div>
+<div><div style="font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#053BA0;margin-bottom:6px">Co-founder</div><div style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:30px;line-height:1;color:#042D7C">Hashim Mohammed</div></div>
 </div>
 </div>
 </section>
 
 <section style="padding:0 16px 16px">
 <div style="max-width:1180px;margin:0 auto;background:#042D7C;color:#FFFFFF;border-radius:36px;padding:clamp(48px,7vw,104px) clamp(32px,6vw,88px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:40px;align-items:end">
-<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4vw,48px);line-height:.95;letter-spacing:-.01em;margin:0">“Your next opportunity isn’t just about applying. <span style="font-style:italic;font-weight:600">It’s about positioning yourself correctly.”</span></h2>
+<h2 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(32px,4vw,48px);line-height:1.04;letter-spacing:-.01em;margin:0">“Your next opportunity isn’t just about applying. <span style="font-weight:600">It’s about positioning yourself correctly.”</span></h2>
 <div style="display:flex;flex-direction:column;gap:18px;align-items:flex-start">
 <p style="font-size:18px;line-height:1.6;margin:0;color:#E3E4E8">Tell us your target role and country. We’ll recommend what fits.</p>
 <a href="https://wa.me/971567053289?text=Hi%20Skilleaze%2C%20I%27d%20like%20help%20with%20my%20career%20profile." target="_blank" style="display:inline-flex;align-items:center;gap:14px;background:#FFFFFF;color:#042D7C;padding:8px 24px 8px 8px;border-radius:999px;box-shadow:0 16px 34px -16px rgba(0,0,0,.5);transition:transform .2s" style-hover="background:#E3E4E8;color:#042D7C;transform:translateY(-2px)"><img src="assets/whatsapp.webp" alt="WhatsApp" style="width:46px;height:46px;display:block;flex-shrink:0;object-fit:contain"><span style="display:flex;flex-direction:column;line-height:1.15;text-align:left"><span style="font-weight:900;font-size:16px">WhatsApp us</span><span style="font-size:12px;font-weight:700;opacity:.7">+971 56 705 3289</span></span><span style="font-size:18px;font-weight:900;margin-left:4px"><svg width="1em" height="1em" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-0.14em;flex-shrink:0"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></span></a>

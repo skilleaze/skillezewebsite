@@ -54,12 +54,27 @@
 <script src="./sk-sound.js" defer></script>
 <script src="./sk-fx.js?v=14" defer></script>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
-<style>body{margin:0;background:#F8F9FA;color:#2C3E50;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased}a{color:#053BA0;text-decoration:none}a:hover{color:#042D7C;text-decoration:underline}</style>
+<style>
+/* sk-ui v2: premium polish */
+html{scroll-behavior:smooth}
+::selection{background:#dbe5fb;color:#042D7C}
+:focus-visible{outline:2px solid #053BA0;outline-offset:3px;border-radius:8px}
+h1,h2,h3{text-wrap:balance}
+.sk-cta a{min-height:56px;box-sizing:border-box}
+details summary{transition:color .2s}
+details[open]{border-color:#cfd6e4!important;box-shadow:0 1px 2px rgba(4,45,124,.04),0 14px 36px -24px rgba(4,45,124,.28)}
+article,details{transition:transform .25s,border-color .25s,box-shadow .25s}
+@media (max-width:640px){
+.sk-cta{flex-direction:column;align-items:stretch!important}
+.sk-cta a{width:100%;justify-content:center;text-align:center}
+section h2{font-size:clamp(30px,8.4vw,38px)!important}
+}
+body{margin:0;background:#F8F9FA;color:#2C3E50;font-family:'Lato',sans-serif;-webkit-font-smoothing:antialiased}a{color:#053BA0;text-decoration:none}a:hover{color:#042D7C;text-decoration:underline}</style>
 <style id="sk-fit">@media (min-width:1024px){html{zoom:.82}}@media (min-width:1600px){html{zoom:.9}}</style>
 </helmet>
 <div style="min-height:100vh">
 <header style="max-width:1100px;margin:0 auto;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
-<a href="./" style="display:flex;align-items:center"><img src="assets/wordmark-blue.webp" alt="Skilleaze" style="height:52px;width:auto;min-width:150px;object-fit:contain;display:block"></a>
+<a href="./" style="display:flex;align-items:center"><img src="assets/wordmark-blue.webp" alt="Skilleaze" style="height:44px;width:auto;min-width:130px;object-fit:contain;display:block"></a>
 <nav style="display:flex;gap:6px;flex-wrap:wrap;background:#FFFFFF;border:1px solid #E3E4E8;border-radius:999px;padding:6px;font-size:15px;font-weight:700">
 <a href="./" style="color:#2C3E50;padding:10px 16px;border-radius:999px" style-hover="background:#E3E4E8;color:#042D7C;text-decoration:none">Home</a>
 <a href="#privacy" style="color:#2C3E50;padding:10px 16px;border-radius:999px" style-hover="background:#E3E4E8;color:#042D7C;text-decoration:none">Privacy</a>
@@ -69,8 +84,8 @@
 </header>
 
 <main style="max-width:860px;margin:0 auto;padding:48px 24px 96px">
-<div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.16em;color:#053BA0;margin-bottom:10px">Policies</div>
-<h1 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(36px,4.6vw,56px);line-height:.92;color:#042D7C;margin:0 0 16px">Clear terms. <span style="font-style:italic;font-weight:600">No surprises.</span></h1>
+<div style="font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#053BA0;margin-bottom:10px">Policies</div>
+<h1 style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:clamp(36px,4.6vw,56px);line-height:1.04;color:#042D7C;margin:0 0 16px">Clear terms. <span style="font-weight:600">No surprises.</span></h1>
 <p style="font-size:15px;margin:0 0 48px;opacity:.75">Skilleaze Global LLP · Puttur, Mangalore, Karnataka, India · Last updated October 21, 2026</p>
 
 <section id="refund" style="background:#042D7C;color:#FFFFFF;border-radius:28px;padding:clamp(28px,4vw,44px);margin-bottom:40px">
